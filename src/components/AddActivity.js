@@ -31,7 +31,7 @@ const AddActivity = () => {
                 <div className="row">
                     <div className="col-lg-4 mx-auto">
                         <div className="mb-3 mt-2">
-                            <label className="form-label">Aktivite</label>
+                            <label className="form-label">Etkinlik Adı</label>
                             <input value={data.name} onChange={(e) => handleChange(e)} className="form-control" type="text" name={"name"} />
                         </div>
                         <div className="mb-3">
