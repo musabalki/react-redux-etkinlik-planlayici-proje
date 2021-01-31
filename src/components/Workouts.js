@@ -6,7 +6,7 @@ import AddActivity from "./AddActivity"
 const Workouts = () => {
     const allActivities = useSelector((state) => state.activities.activities)
     const [add, setAdd] = useState(false);
-    console.log(allActivities);
+
     return (
         <div className="container">
             <div className="row">

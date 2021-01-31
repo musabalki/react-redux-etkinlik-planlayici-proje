@@ -24,15 +24,16 @@ const ActivitiesReducer = (state = initalState, action) => {
             return { ...state, activities: deleted };
         case "UPDATE_ACTIVITY":
             const updated = state.activities.map(activity => {
-                if (activity.id == payload.id) {
+                if (activity.id.toString() === payload.id) {
                     activity = payload
                 }
-                return activity
+                return activity;
             })
-
             return { ...state, activities: updated };
+        default:
+            return state;
     }
-    return state;
+
 }
 
 export default ActivitiesReducer;

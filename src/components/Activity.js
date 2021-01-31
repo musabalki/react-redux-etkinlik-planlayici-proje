@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, {useState } from "react"
 import { useDispatch } from "react-redux"
 
 const Activity = (props) => {
@@ -11,11 +11,9 @@ const Activity = (props) => {
 
         dispatch({ type: "DELETE_ACTIVITY", payload: id })
     }
-    useEffect(() => {
+    const editActivity = () => {
         setActivityName(props.name)
         setActivityDuration(props.duration)
-    }, [])
-    const editActivity = () => {
         setActivity(true);
     }
     const updateActivity = () => {
@@ -33,8 +31,10 @@ const Activity = (props) => {
 
     return (
         <div style={{ display: "flex", justifyContent: "center", margin: 20, alignItems: "center" }}>
+
+
             {
-                setId ? <div> <input type="text" onChange={(e) => changeActivity(e)} value={activityName} /> <input type="text" onChange={(e) => changeDuration(e)} value={activityDuration} />  <button className="btn btn-warning" onClick={() => updateActivity()}>Güncelle</button> </div> : <div><span><strong>Etkinlik: </strong> {props.name}, <strong>Süre:</strong> {props.duration} </span><button onClick={() => editActivity(props.id)} className="btn btn-dark ms-2" >Düzenle</button> </div>
+                setId ? <div> <input type="text" onChange={(e) => changeActivity(e)} value={activityName} /> <input type="text" onChange={(e) => changeDuration(e)} value={activityDuration} />  <button className="btn btn-warning" onClick={() => updateActivity()}>Güncelle</button> </div> : <div><span>Etkinlik: {props.name}, Süre: {props.duration} </span><button onClick={() => editActivity(props.id)} className="btn btn-dark ms-2" >Düzenle</button> </div>
             }
             <button onClick={() => deleteActivity(props.id)} className="btn btn-danger ms-2" >Sil</button>
         </div>
