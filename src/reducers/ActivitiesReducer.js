@@ -1,12 +1,12 @@
 const initalState = {
     activities: [
         {
-            id: "1",
+            id: 1,
             name: "Etkinlik 1",
             duration: "2 saat"
         },
         {
-            id: "2",
+            id: 2,
             name: "Etkinlik 2",
             duration: "3 saat"
         }
@@ -20,12 +20,12 @@ const ActivitiesReducer = (state = initalState, action) => {
             const added = { ...state, activities: [...state.activities, payload] };
             return added;
         case "DELETE_ACTIVITY":
-            const deleted = state.activities.filter(activity => activity.id !== payload);
+            const deleted = [...state.activities].filter(activity => activity.id !== payload);
             return { ...state, activities: deleted };
         case "UPDATE_ACTIVITY":
             const updated = state.activities.map(activity => {
-                if (activity.id.toString() === payload.id) {
-                    activity = payload
+                if (activity.id === payload.id) {
+                   return {...activity,name:payload.name,duration:payload.duration}
                 }
                 return activity;
             })
