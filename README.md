@@ -1,1 +1,2 @@
-### Etkinlik Planlayıcı - React Redux
+# Etkinlik Planlayıcı - React Redux
+## [Demo](https://etkinlik-planlayici.netlify.app/)
